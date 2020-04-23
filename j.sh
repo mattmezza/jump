@@ -1,6 +1,6 @@
 j() {
-    JUMP_VERSION="1.0.0"
-    JUMP_DB=${JJDB:-"$HOME/.jj"}
+    local JUMP_VERSION="1.0.0"
+    local DB=${JUMP_DB:-"$HOME/.jump"}
     if [ $# -eq 0 ]
     then
         cd $HOME
@@ -22,7 +22,7 @@ j() {
                     # goto help
             esac
         else
-            cd $(cat $JUMP_DB | grep -Em1 "^$1" | sed -E 's/^.*\:(.*)$/\1/')
+            cd $(cat $DB | grep -Em1 "^$1" | sed -E 's/^.*\:(.*)$/\1/')
             return
         fi
     else
@@ -30,21 +30,21 @@ j() {
             "-a"|"--add")
                 if [ $# -eq 3 ]
                 then
-                    echo "$2:$3" >> $JUMP_DB
+                    echo "$2:$3" >> $DB
                     return
                 fi
                 ;;
             "-d"|"--delete")
                 if [ $# -eq 2 ]
                 then
-                    sed -Ei '' "/^$2\:.*$/d" $JUMP_DB
+                    sed -Ei '' "/^$2\:.*$/d" $DB
                     return
                 fi
                 ;;
             "-r"|"--resolve")
                 if [ $# -eq 2 ]
                 then
-                    cat $JUMP_DB | grep -Em1 "^$2" | sed -E 's/^.*\:(.*)$/\1/'
+                    cat $DB | grep -Em1 "^$2" | sed -E 's/^.*\:(.*)$/\1/'
                     return
                 fi
                 ;;
@@ -74,6 +74,6 @@ Examples:
     $ $0 -h           # to print this message
     $ $0 -v           # to print the jump version
 
-DB is at '$JUMP_DB'.
+DB is at '$DB'.
 EOF
 }
