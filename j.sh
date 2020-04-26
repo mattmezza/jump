@@ -18,6 +18,10 @@ j() {
                     echo $JUMP_VERSION
                     return
                     ;;
+                "-p"|"--db")
+                    echo $DB
+                    return
+                    ;;
                 *)
                     # goto help
             esac
@@ -62,6 +66,7 @@ OPT:
     -a|--add
     -l|--list
     -d|--delete
+    -p|--db
     -h|--help
     -v|--version
 
@@ -73,7 +78,7 @@ Examples:
     $ $0 -l           # to list all entries
     $ $0 -h           # to print this message
     $ $0 -v           # to print the jump version
+    $ $0 -p           # to print the path of the DB file
 
-DB is at '$DB'.
 EOF
 }

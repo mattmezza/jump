@@ -3,6 +3,8 @@ jump
 
 `jump` is a utility to allow you to quickly jump to known location on your filesystem.
 
+![](j.gif)
+
 Installation
 ===
 
@@ -26,6 +28,7 @@ OPT:
     -a|--add
     -l|--list
     -d|--delete
+    -p|--db
     -h|--help
     -v|--version
 
@@ -37,8 +40,7 @@ Examples:
     $ j -l           # to list all entries
     $ j -h           # to print this message
     $ j -v           # to print the jump version
-
-DB is at '/Users/matt/.jj'.
+    $ j -p           # to print the path of the DB file
 ```
 
 Development
