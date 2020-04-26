@@ -16,7 +16,7 @@ git clone --branch 1.0.0 git@github.com:mattmezza/jump.git && source jump/j.sh
 Usage
 ===
 
-What follows is the output of `todo help`, accessible at any time.
+What follows is the output of `j -h`, accessible at any time.
 
 ```
 
